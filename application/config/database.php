@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['development'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'dbsosmedia.cjorhe5jzkni.us-east-2.rds.amazonaws.com',
+	'username' => 'admin',
+	'password' => 'farman17',
 	'database' => 'warsito',
 	'dbdriver' => 'mysql',
 	'dbprefix' => '',

@@ -56,7 +56,7 @@ class Gedung_Model extends CI_Model {
 	}
 
 	public function get_all() {
-		$sql = "SELECT * FROM HOME_DATA";
+		$sql = "SELECT * FROM home_data";
 		$query = $this->db->query($sql);
 		$hasil = $query->result_array();
 		return $hasil;
@@ -366,14 +366,14 @@ class Gedung_Model extends CI_Model {
 	}
 
 	public function sort_by_name() {
-		$sql = "SELECT * FROM HOME_DATA ORDER BY NAMA_GEDUNG ASC";
+		$sql = "SELECT * FROM home_data ORDER BY NAMA_GEDUNG ASC";
 		$query = $this->db->query($sql);
 		$hasil = $query->result_array();
 		return $hasil;
 	}
 
 	public function sort_by_capacity() {
-		$sql = "SELECT * FROM HOME_DATA ORDER BY KAPASITAS DESC";
+		$sql = "SELECT * FROM home_data ORDER BY KAPASITAS DESC";
 		$query = $this->db->query($sql);
 		$hasil = $query->result_array();
 		return $hasil;
@@ -386,7 +386,7 @@ class Gedung_Model extends CI_Model {
 	}
 
 	public function search_gedung($nama_gedung) {
-		$query = "SELECT ID_GEDUNG, NAMA_GEDUNG, PATH, IMG_NAME FROM HOME_DATA WHERE NAMA_GEDUNG LIKE '%$nama_gedung%'";
+		$query = "SELECT ID_GEDUNG, NAMA_GEDUNG, PATH, IMG_NAME FROM home_data WHERE NAMA_GEDUNG LIKE '%$nama_gedung%'";
 		$sql = $this->db->query($query);
 		return $sql->result_array();
 	}
