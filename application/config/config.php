@@ -19,7 +19,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 | environments.
 |
 */
-$config['base_url'] = 'https://sosialmedia.dailybugis.my.id/ebook/';
+$config['base_url'] = 'https://sosialmedia.dailybugis.my.id/';
 
 /*
 |--------------------------------------------------------------------------
