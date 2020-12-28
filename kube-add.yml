@@ -1,0 +1,65 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sosmed-service
+  namespace: production
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  #type: LoadBalancer
+  selector:
+    app: sosmed
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sosmed
+  namespace: production
+spec:
+  selector:
+    matchLabels:
+      app: sosmed
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sosmed
+    spec:
+      containers:
+      - name: php-pesbuk
+        image: farman17/booking-hotel:1.0
+        ports:
+          - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: "dbsosmedia.cjorhe5jzkni.us-east-2.rds.amazonaws.com"
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: p-secret-fb
+              key: DB_USER
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: p-secret-fb
+              key: DB_PASS
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sosmed-ingress
+  namespace: production
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: sosialmedia.dailybugis.my.id
+    http:
+      paths:
+      #- path: /
+      - backend:
+          serviceName: sosmed-service
+          servicePort: 80
+
