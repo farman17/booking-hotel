@@ -19,7 +19,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 | environments.
 |
 */
-$config['base_url'] = 'http://3.23.111.154:3000/ebook/';
+$config['base_url'] = 'https://sosialmedia.dailybugis.my.id/ebook/';
 
 /*
 |--------------------------------------------------------------------------
