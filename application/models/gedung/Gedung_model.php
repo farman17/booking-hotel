@@ -69,7 +69,7 @@ class Gedung_Model extends CI_Model {
 	}
 
 	public function get_pemesanan_flag($username) {
-		$query = "SELECT * FROM PEMESANAN WHERE USERNAME = '$username' AND FLAG = 1";
+		$query = "SELECT * FROM pemesanan WHERE USERNAME = '$username' AND FLAG = 1";
 		$sql = $this->db->query($query);
 		return $sql->num_rows();
 	}
